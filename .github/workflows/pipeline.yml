@@ -40,8 +40,8 @@ jobs:
       run: |
         cf api "$CF_API_URL"
         cf auth
-        cf set-env pal-tracker JBP_LOG_LEVEL DEBUG
         cf target -o "$CF_ORG" -s "$CF_SPACE"
+        cf set-env pal-tracker JBP_LOG_LEVEL DEBUG
         cf push pal-tracker -p ./pal-tracker/pal-tracker.jar
       env:
         CF_API_URL: ${{ secrets.CF_API_URL }}
