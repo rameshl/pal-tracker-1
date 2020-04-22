@@ -17,6 +17,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
+dependencies {
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
 springBoot {
     mainClassName = "io.pivotal.pal.tracker.PalTrackerApplication"
 }
@@ -30,3 +36,15 @@ bootJar {
         attributes 'Start-Class': 'io.pivotal.pal.tracker.PalTrackerApplication'
     }
 }
+
+test {
+    useJUnitPlatform()
+}
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello",
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
+])
