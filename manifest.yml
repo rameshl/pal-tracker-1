@@ -2,7 +2,6 @@
 applications:
   - name: pal-tracker
     path: build/libs/pal-tracker.jar
-    buildpack: https://github.com/cloudfoundry/java-buildpack.git
     routes:
       - route: pal-tracker-by-ramesh.cfapps.io
     env:
