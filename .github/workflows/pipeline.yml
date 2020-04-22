@@ -41,7 +41,7 @@ jobs:
         cf api "$CF_API_URL"
         cf auth
         cf target -o "$CF_ORG" -s "$CF_SPACE"
-        cf push -p ./pal-tracker/pal-tracker.jar -f manifesty.xml
+        cf push -p ./pal-tracker/pal-tracker.jar -f
       env:
         CF_API_URL: ${{ secrets.CF_API_URL }}
         CF_ORG: ${{ secrets.CF_ORG }}
