@@ -41,8 +41,9 @@ jobs:
         cf api "$CF_API_URL"
         cf auth
         cf target -o "$CF_ORG" -s "$CF_SPACE"
+        cf set-env pal-tracker JBP_CONFIG_MANIFEST ./manifest.yml
         cf set-env pal-tracker JBP_LOG_LEVEL DEBUG
-        cf push pal-tracker -p ./pal-tracker/pal-tracker.jar -b https://github.com/cloudfoundry/java-buildpack.git
+        cf push pal-tracker -p ./pal-tracker/pal-tracker.jar
       env:
         CF_API_URL: ${{ secrets.CF_API_URL }}
         CF_ORG: ${{ secrets.CF_ORG }}
