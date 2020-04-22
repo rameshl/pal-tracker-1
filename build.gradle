@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+springBoot {
+    mainClassName = "io.pivotal.pal.tracker.PalTrackerApplication"
+}
+
+jar {
+    enabled = true
+}
+
+bootJar {
+    manifest {
+        attributes 'Start-Class': 'io.pivotal.pal.tracker.PalTrackerApplication'
+    }
+}
