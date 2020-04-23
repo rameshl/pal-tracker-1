@@ -43,7 +43,7 @@ jobs:
         cf target -o "$CF_ORG" -s "$CF_SPACE"
         cf set-env pal-tracker JBP_CONFIG_MANIFEST ./manifest.yml
         cf set-env pal-tracker JBP_LOG_LEVEL DEBUG
-        cf push pal-tracker
+        cf push pal-tracker -p ./test/pal-tracker.jar
       env:
         CF_API_URL: ${{ secrets.CF_API_URL }}
         CF_ORG: ${{ secrets.CF_ORG }}
